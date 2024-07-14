@@ -1,0 +1,78 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@keyframes slideIn {
+    0% {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.animate-slide-in {
+    animation: slideIn 2s ease-in-out forwards;
+}
+
+
+.contianer{
+    @apply px-6 py-12 max-w-7xl mx-auto lg:px-8 lg:mt-32
+}
+h1,h2,h3{
+    @apply font-sans text-gray-800 font-medium;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* Animation for the About Us section */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+#aboutus.fade-in {
+    animation: fadeInUp 1s ease-in-out;
+}
+
+@keyframes slideInDown {
+    0% {
+        opacity: 0;
+        transform: translateY(-50px); /* Start from above */
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0); /* End at original position */
+    }
+}
+
+/* Class for Applying Slide-in Down Animation */
+.animate-slide-down {
+    animation: slideInDown 0.5s ease-out forwards; /* Adjust duration and easing as needed */
+}
+
+/* Class for Fade-out Animation */
+.animate-fade-out {
+    animation: fadeOut 0.5s ease-out forwards;
+}
+
+/* Keyframes for Fade-out Animation */
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+  

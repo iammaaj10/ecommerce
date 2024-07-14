@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+<link rel="stylesheet" href="output.css">
+<link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+<body class="bg-gradient-to-r from-purple-200 via-purple-400 to-purple-800">
+    <nav class="p-3 flex justify-between items-center">
+        
+        <h2 class="text-2xl font-sans font-semibold text-blue-700">Maaj<span class="text-red-700 font-semibold">N</span>company</h2>
+    
+    <div class=" hidden lg:flex gap-12 items-center font-sans" >
+        <a href="index.html" class=" font-medium hover:text-red-800">Home</a>
+        <a href="# "class=" font-medium  hover:text-red-800">About</a>
+        <a href="#"class=" font-medium  hover:text-red-800">Contact Us</a>
+        <a href="#"class=" font-medium  hover:text-red-800">Shop</a>
+        <div class="addtocart relative inline-block">
+            <i class="fa-solid fa-cart-shopping text-2xl cursor-pointer" id="add-cart" ></i>
+            <span class="quantity bg-red-500 text-white rounded-full px-2 py-0 text-xs absolute -top-2 -right-3" id="quan">0</span>
+        </div>
+        
+        
+    </div>
+    
+   
+      
+        <button class="hidden lg:flex border-gray-500 text-white bg-blue-800 rounded-md px-6 py-2 items-center hover:bg-gray-300 hover: border hover:border-gray-500 hover:text-black gap-2 group " id="btn1">Get Started
+            <i class="fa-solid fa-arrow-right group-hover:translate-x-2 transition duration-300"></i>
+        </button>
+
+        <button class="p-3 lg:hidden" onclick="handlemenu()">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+        <div id="navdialog" class="hidden fixed bg-white inset-0 p-3 z-10 md:hidden">
+            <div class="flex justify-between">
+                <h2 class="text-xl font-sans font-semibold text-blue-700">Maaj<span class="text-red-700 font-semibold">N</span>company</h2>
+                <button class="p-3 lg:hidden" onclick="handlemenu()">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+            <div class="mt-6">
+                <a href="index.html" class="font-medium m-3 p-3 hover:bg-gray-50 block rounded-lg active">Home</a>
+                <a href="#" class="font-medium m-3 p-3 hover:bg-gray-50 block rounded-lg">About</a>
+                <a href="#" class="font-medium m-3 p-3 hover:bg-gray-50 block rounded-lg">Contact us </a>
+                <a href="#" class="font-medium m-3 p-3 hover:bg-gray-50 block rounded-lg">Shop</a>
+                
+                
+            </div>
+            
+            <div>
+                <button class="border-gray-500 text-white bg-blue-800 rounded-md px-6 py-2 items-center hover:bg-gray-300 hover: border hover:border-gray-500 hover:text-black mt-5 group " id="btn2">Get Started
+                    <i class="fa-solid fa-arrow-right group-hover:translate-x-2 transition duration-300"></i>
+                </button>
+            </div>
+        </div>
+        <div class="addtocart relative inline-block items-center lg:hidden">
+            <i class="fa-solid fa-cart-shopping text-2xl cursor-pointer" id="add-cart1" ></i>
+            <span class="quantity bg-red-500 text-white rounded-full px-2 py-0 text-xs absolute -top-2 -right-3" id="quan1">0</span>
+        </div>
+    
+</nav>
+<main>
+     <!-- cart-section -->
+        <div class="hidden container flex items-center justify-center" id="cart-container">
+            <div class="bg-white relative flex flex-col p-6 w-1/2 h-full rounded-xl gap-6 items-center">
+                <i class="fa-solid fa-xmark absolute top-4 right-4 cursor-pointer hover:text-red-600 z-10" id="cross1"></i> 
+                <h1 class="text-3xl font-sans font-bold text-center text-red-600">list added in the cart!!</h1>
+                    <div class="shopping-list overflow-auto font-sans font-bold " id="cart" >
+                        
+                    </div>
+            </div>
+
+        </div>
+
+
+    <!-- signup-section -->
+    <div class="hidden fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 animate-slide-down" id="signup">
+        <div class="relative w-3/4 lg:w-1/3 rounded-lg bg-slate-100 px-6 py-12 lg:px-8 ">
+            <i class="fa-solid fa-xmark absolute top-4 right-4 cursor-pointer hover:text-red-600" id="cross"></i>
+            <h1 class="text-3xl font-bold text-center text-blue-500 font-sans">Sign Up</h1>
+          
+            <form action="" class="flex flex-col gap-2 px-5 mt-3">
+                <input type="text" class="p-2 border border-gray-300 rounded-md lg:w-2/3 w-3/4 bg-slate-100 form-control" id="user" placeholder="Username" required>
+                <span id="error1" class="er text-red-600 font-bold"></span>
+                <input type="number" class="p-2 border border-gray-300 rounded-md lg:w-2/3 w-3/4 bg-slate-100  form-control" id="nos" placeholder="Phone No" required>
+                <span id="error2" class="er1 text-red-600 font-bold"></span>
+                <input type="email" class="p-2 border border-gray-300 rounded-md lg:w-2/3 w-3/4 bg-slate-100 form-control" id="email" placeholder="Email Id" required>
+                <span id="error3" class="er2 text-red-600 font-bold"></span>
+                <input type="password" class="p-2 border border-gray-300 rounded-md lg:w-2/3 w-3/4 bg-slate-100 form-control" id="pass" placeholder="Password" required>
+                <span id="error4" class="er3 text-red-600 font-bold"></span>
+                <input type="password" class="p-2 border border-gray-300 rounded-md lg:w-2/3 w-3/4 bg-slate-100 form-control" id="pass1" placeholder="Confirm Password" required>    
+                <span id="error5" class="er4 text-red-600 font-bold"></span>
+                
+                    <button class="formsubmit1 font-bold bg-cyan-400 text-white rounded-full hover:bg-cyan-700 hover:border border-cyan-200 w-fit px-5 py-2 text-lg hover:text-gray-200" id="sign-btn" type="button">Sign UP</button>
+                
+            </form>
+        </div>
+    </div>
+
+    <div class=" container mt-11">
+        <marquee behavior="" direction="right" class="text-5xl font-sembold mb-20 p-2">Hurry up shop now from <span class="font-bold text-red-600">maajNcompany</span> !!</marquee>
+    </div>
+    <form>
+        <div id="search" class="flex items-center justify-center gap-2">
+            <i class="fa-solid fa-magnifying-glass text-red-600 text-2xl"></i>
+            <input type="text" id="searchInput" placeholder="Enter the product name" class="border p-2 rounded-lg w-1/2" onkeyup="filterShoes()">
+        </div>
+    </form>
+
+           <div id="grid-container" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-5 mt-6">
+            <div class="bg-slate-200 flex flex-col p-6 w-full h-full rounded-xl gap-6 items-center  hover:bg-gradient-to-br
+            group-hover:from-red-50 
+           group-hover:via-purple-50 
+           group-hover:to-yellow-50 product-list"data-aos="flip-left">
+                <h3 class="text-2xl">Adidas t-103</h3>
+                <img src="pngwing.com.png" alt="" class="w-40 h-40">
+                <h1 class="text-red-500 text-center font-bold text-lg">$300</h1>
+                <button class="font-bold bg-red-600 text-white rounded-xl hover:bg-slate-300 hover:border border-slate-600 w-fit px-5 py-2 text-lg hover:text-black btn-hard">Add to Cart </button>
+            </div>
+            <div class="bg-slate-200 flex flex-col p-6 w-full h-full rounded-xl gap-6 items-center  hover:bg-gradient-to-br
+            group-hover:from-red-50 
+           group-hover:via-purple-50 
+           group-hover:to-yellow-50 product-list" data-aos="flip-left">
+                <h3 class="text-2xl">Nike Airmax</h3>
+                <img src="maaj1.png" alt="" class="w-40 h-40">
+                <h1 class="text-red-500 text-center font-bold text-lg">$300</h1>
+                <button class="font-bold bg-red-600 text-white rounded-xl hover:bg-slate-300 hover:border border-slate-600 w-fit px-5 py-2 text-lg hover:text-black btn-hard"> Add to Cart </button></div>
+            <div class="bg-slate-200 flex flex-col p-6 w-full h-full rounded-xl gap-6 items-center  hover:bg-gradient-to-br
+            group-hover:from-red-50 
+           group-hover:via-purple-50 
+           group-hover:to-yellow-50 product-list"data-aos="flip-left">
+                <h3 class="text-2xl">Nike R-22</h3>
+                <img src="maaj2.png" alt="" class="w-40 h-40">
+                <h1 class="text-red-500 text-center font-bold text-lg">$300</h1>
+                <button class="font-bold bg-red-600 text-white rounded-xl hover:bg-slate-300 hover:border border-slate-600 w-fit px-5 py-2 text-lg hover:text-black btn-hard">Add to Cart </button>
+            </div>
+            <div class="bg-slate-200 flex flex-col p-6 w-full h-full rounded-xl gap-6 items-center  hover:bg-gradient-to-br
+            group-hover:from-red-50 
+           group-hover:via-purple-50 
+           group-hover:to-yellow-50 product-list"data-aos="flip-left">
+                <h3 class="text-2xl">Nike t-104</h3>
+                <img src="maaj3.png" alt="" class="w-40 h-40">
+                <h1 class="text-red-500 text-center font-bold text-lg">$300</h1>
+                <button class="font-bold bg-red-600 text-white rounded-xl hover:bg-slate-300 hover:border border-slate-600 w-fit px-5 py-2 text-lg hover:text-black btn-hard">Add to Cart </button>
+            </div>
+            <div class="bg-slate-200 flex flex-col p-6 w-full h-full rounded-xl gap-6 items-center  hover:bg-gradient-to-br
+            group-hover:from-red-50 
+           group-hover:via-purple-50 
+           group-hover:to-yellow-50 product-list"data-aos="flip-left">
+                <h3 class="text-2xl">T-105</h3>
+                <img src="maaj5.png" alt="" class="w-40 h-40">
+                <h1 class="text-red-500 text-center font-bold text-lg">$300</h1>
+                <button class="font-bold bg-red-600 text-white rounded-xl hover:bg-slate-300 hover:border border-slate-600 w-fit px-5 py-2 text-lg hover:text-black btn-hard">Add to Cart </button>
+            </div>
+            <div class="bg-slate-200 flex flex-col p-6 w-full h-full rounded-xl gap-6 items-center  hover:bg-gradient-to-br
+            group-hover:from-red-50 
+           group-hover:via-purple-50 
+           group-hover:to-yellow-50 product-list"data-aos="flip-left">
+                <h3 class="text-2xl">T-106</h3>
+                <img src="maaj6.png" alt="" class="w-40 h-40">
+                <h1 class="text-red-500 text-center font-bold text-lg">$300</h1>
+                <button class="font-bold bg-red-600 text-white rounded-xl hover:bg-slate-300 hover:border border-slate-600 w-fit px-5 py-2 text-lg hover:text-black btn-hard">Add to Cart </button>
+            </div>
+            <div class="bg-slate-200 flex flex-col p-6 w-full h-full rounded-xl gap-6 items-center  hover:bg-gradient-to-br
+            group-hover:from-red-50 
+           group-hover:via-purple-50 
+           group-hover:to-yellow-50 product-list"data-aos="flip-left">
+                <h3 class="text-2xl">T-107</h3>
+                <img src="maaj7.png" alt="" class="w-40 h-40">
+                <h1 class="text-red-500 text-center font-bold text-lg">$300</h1>
+                <button class="font-bold bg-red-600 text-white rounded-xl hover:bg-slate-300 hover:border border-slate-600 w-fit px-5 py-2 text-lg hover:text-black btn-hard">Add to Cart </button>
+            </div>
+            <div class="bg-slate-200 flex flex-col p-6 w-full h-full rounded-xl gap-6 items-center  hover:bg-gradient-to-br
+            group-hover:from-red-50 
+           group-hover:via-purple-50 
+           group-hover:to-yellow-50 product-list"data-aos="flip-left">
+                <h3 class="text-2xl">T-108</h3>
+                <img src="maaj8.png" alt="" class="w-40 h-40">
+                <h1 class="text-red-500 text-center font-bold text-lg">$300</h1>
+                <button class="font-bold bg-red-600 text-white rounded-xl hover:bg-slate-300 hover:border border-slate-600 w-fit px-5 py-2 text-lg hover:text-black btn-hard">Add to Cart </button>
+            </div>
+            <div class="bg-slate-200 flex flex-col p-6 w-full h-full rounded-xl gap-6 items-center  hover:bg-gradient-to-br
+            group-hover:from-red-50 
+           group-hover:via-purple-50 
+           group-hover:to-yellow-50 product-list"data-aos="flip-left">
+                <h3 class="text-2xl">T-109</h3>
+                <img src="maaj9.png" alt="" class="w-40 h-40">
+                <h1 class="text-red-500 text-center font-bold text-lg">$300</h1>
+                <button class="font-bold bg-red-600 text-white rounded-xl hover:bg-slate-300 hover:border border-slate-600 w-fit px-5 py-2 text-lg hover:text-black btn-hard">Add to Cart </button>
+            </div>
+            <div class="bg-slate-200 flex flex-col p-6 w-full h-full rounded-xl gap-6 items-center  hover:bg-gradient-to-br
+            group-hover:from-red-50 
+           group-hover:via-purple-50 
+           group-hover:to-yellow-50 product-list"data-aos="flip-left">
+                <h3 class="text-2xl">T-110</h3>
+                <img src="maaj10.png" alt="" class="w-40 h-40">
+                <h1 class="text-red-500 text-center font-bold text-lg">$300</h1>
+                <button class="font-bold bg-red-600 text-white rounded-xl hover:bg-slate-300 hover:border border-slate-600 w-fit px-5 py-2 text-lg hover:text-black btn-hard">Add to Cart </button>
+            </div>
+            <div class="bg-slate-200 flex flex-col p-6 w-full h-full rounded-xl gap-6 items-center  hover:bg-gradient-to-br
+            group-hover:from-red-50 
+           group-hover:via-purple-50 
+           group-hover:to-yellow-50 product-list"data-aos="flip-left">
+                <h3 class="text-2xl">T-111</h3>
+                <img src="maaj11.png" alt="" class="w-40 h-40">
+                <h1 class="text-red-500 text-center font-bold text-lg">$300</h1>
+                <button class="font-bold bg-red-600 text-white rounded-xl hover:bg-slate-300 hover:border border-slate-600 w-fit px-5 py-2 text-lg hover:text-black btn-hard">Shop now</button>
+            </div>
+            <div class="bg-slate-200 flex flex-col p-6 w-full h-full rounded-xl gap-6 items-center  hover:bg-gradient-to-br
+            group-hover:from-red-50 
+           group-hover:via-purple-50 
+           group-hover:to-yellow-50 product-list"data-aos="flip-left">
+                <h3 class="text-2xl">T-112</h3>
+                <img src="maaj12.png" alt="" class="w-40 h-40">
+                <h1 class="text-red-500 text-center font-bold text-lg">$300</h1>
+                <button class="font-bold bg-red-600 text-white rounded-xl hover:bg-slate-300 hover:border border-slate-600 w-fit px-5 py-2 text-lg hover:text-black btn-hard">Add to Cart </button>
+            </div>
+            <div class="bg-slate-200 flex flex-col p-6 w-full h-full rounded-xl gap-6 items-center  hover:bg-gradient-to-br
+            group-hover:from-red-50 
+           group-hover:via-purple-50 
+           group-hover:to-yellow-50 product-list"data-aos="flip-left">
+                <h3 class="text-2xl">T-113</h3>
+                <img src="maaj13.png" alt="" class="w-40 h-40">
+                <h1 class="text-red-500 text-center font-bold text-lg">$300</h1>
+                <button class="font-bold bg-red-600 text-white rounded-xl hover:bg-slate-300 hover:border border-slate-600 w-fit px-5 py-2 text-lg hover:text-black btn-hard">Add to Cart </button>
+            </div>
+            <div class="bg-slate-200 flex flex-col p-6 w-full h-full rounded-xl gap-6 items-center  hover:bg-gradient-to-br
+            group-hover:from-red-50 
+           group-hover:via-purple-50 
+           group-hover:to-yellow-50 product-list"data-aos="flip-left">
+                <h3 class="text-2xl">T-114</h3>
+                <img src="maaj14.png" alt="" class="w-40 h-40">
+                <h1 class="text-red-500 text-center font-bold text-lg">$300</h1>
+                <button class="font-bold bg-red-600 text-white rounded-xl hover:bg-slate-300 hover:border border-slate-600 w-fit px-5 py-2 text-lg hover:text-black btn-hard">Add to Cart </button>
+            </div>
+            <div class="bg-slate-200 flex flex-col p-6 w-full h-full rounded-xl gap-6 items-center  hover:bg-gradient-to-br
+            group-hover:from-red-50 
+           group-hover:via-purple-50 
+           group-hover:to-yellow-50 product-list"data-aos="flip-left">
+                <h3 class="text-2xl">T-115</h3>
+                <img src="maaj15.png" alt="" class="w-40 h-40">
+                <h1 class="text-red-500 text-center font-bold text-lg">$300</h1>
+                <button class="font-bold bg-red-600 text-white rounded-xl hover:bg-slate-300 hover:border border-slate-600 w-fit px-5 py-2 text-lg hover:text-black btn-hard">Add to Cart </button>
+            </div>
+            <div class="bg-slate-200 flex flex-col p-6 w-full h-full rounded-xl gap-6 items-center  hover:bg-gradient-to-br
+            group-hover:from-red-50 
+           group-hover:via-purple-50 
+           group-hover:to-yellow-50 product-list"data-aos="flip-left">
+                <h3 class="text-2xl">T-116</h3>
+                <img src="maaj16.png" alt="" class="w-40 h-40">
+                <h1 class="text-red-500 text-center font-bold text-lg">$300</h1>
+                <button class="font-bold bg-red-600 text-white rounded-xl hover:bg-slate-300 hover:border border-slate-600 w-fit px-5 py-2 text-lg hover:text-black btn-hard">Add to Cart </button>
+            </div>
+            <div class="bg-slate-200 flex flex-col p-6 w-full h-full rounded-xl gap-6 items-center  hover:bg-gradient-to-br
+            group-hover:from-red-50 
+           group-hover:via-purple-50 
+           group-hover:to-yellow-50 product-list"data-aos="flip-left">
+                <h3 class="text-2xl">T-117</h3>
+                <img src="maaj17.png" alt="" class="w-40 h-40">
+                <h1 class="text-red-500 text-center font-bold text-lg">$300</h1>
+                <button class="font-bold bg-red-600 text-white rounded-xl hover:bg-slate-300 hover:border border-slate-600 w-fit px-5 py-2 text-lg hover:text-black btn-hard">Add to Cart </button>
+            </div>
+            <div class="bg-slate-200 flex flex-col p-6 w-full h-full rounded-xl gap-6 items-center  hover:bg-gradient-to-br
+            group-hover:from-red-50 
+           group-hover:via-purple-50 
+           group-hover:to-yellow-50 product-list"data-aos="flip-left">
+                <h3 class="text-2xl">T-118</h3>
+                <img src="maaj18.png" alt="" class="w-40 h-40">
+                <h1 class="text-red-500 text-center font-bold text-lg">$300</h1>
+                <button class="font-bold bg-red-600 text-white rounded-xl hover:bg-slate-300 hover:border border-slate-600 w-fit px-5 py-2 text-lg hover:text-black btn-hard">Add to Cart </button>
+            </div>
+            <div class="bg-slate-200 flex flex-col p-6 w-full h-full rounded-xl gap-6 items-center  hover:bg-gradient-to-br
+            group-hover:from-red-50 
+           group-hover:via-purple-50 
+           group-hover:to-yellow-50 product-list" data-aos="flip-left">
+                <h3 class="text-2xl">T-119</h3>
+                <img src="maaj19.png" alt="" class="w-40 h-40">
+                <h1 class="text-red-500 text-center font-bold text-lg">$300</h1>
+                <button class="font-bold bg-red-600 text-white rounded-xl hover:bg-slate-300 hover:border border-slate-600 w-fit px-5 py-2 text-lg hover:text-black btn-hard">Add to Cart </button>
+            </div>
+            <div class="bg-slate-200 flex flex-col p-6 w-full h-full rounded-xl gap-6 items-center  hover:bg-gradient-to-br
+            group-hover:from-red-50 
+           group-hover:via-purple-50 
+           group-hover:to-yellow-50 product-list" data-aos="flip-left">
+                <h3 class="text-2xl">Arizon f-20</h3>
+                <img src="maaj20.png" alt="" class="w-40 h-40">
+                <h1 class="text-red-500 text-center font-bold text-lg">$300</h1>
+                <button class="font-bold bg-red-600 text-white rounded-xl hover:bg-slate-300 hover:border border-slate-600 w-fit px-5 py-2 text-lg hover:text-black btn-hard">Add to Cart </button>
+            </div>
+            <div class="bg-slate-200 flex flex-col p-6 w-full h-full rounded-xl gap-6 items-center  hover:bg-gradient-to-br
+            group-hover:from-red-50 
+           group-hover:via-purple-50 
+           group-hover:to-yellow-50 product-list"data-aos="flip-left">
+                <h3 class="text-2xl">T-121</h3>
+                <img src="maaj21.png" alt="" class="w-40 h-40">
+                <h1 class="text-red-500 text-center font-bold text-lg">$300</h1>
+                <button class="font-bold bg-red-600 text-white rounded-xl hover:bg-slate-300 hover:border border-slate-600 w-fit px-5 py-2 text-lg hover:text-black btn-hard">Add to Cart </button>
+            </div>
+            <div class="bg-slate-200 flex flex-col p-6 w-full h-full rounded-xl gap-6 items-center  hover:bg-gradient-to-br
+            group-hover:from-red-50 
+           group-hover:via-purple-50 
+           group-hover:to-yellow-50 product-list"data-aos="flip-left">
+                <h3 class="text-2xl">T-122</h3>
+                <img src="maaj22.png" alt="" class="w-40 h-40">
+                <h1 class="text-red-500 text-center font-bold text-lg">$300</h1>
+                <button class="font-bold bg-red-600 text-white rounded-xl hover:bg-slate-300 hover:border border-slate-600 w-fit px-5 py-2 text-lg hover:text-black btn-hard">Add to Cart </button>
+            </div>
+            <div class="bg-slate-200 flex flex-col p-6 w-full h-full rounded-xl gap-6 items-center  hover:bg-gradient-to-br
+            group-hover:from-red-50 
+           group-hover:via-purple-50 
+           group-hover:to-yellow-50 product-list" data-aos="flip-left">
+                <h3 class="text-2xl">T-123</h3>
+                <img src="maaj23.png" alt="" class="w-40 h-40">
+                <h1 class="text-red-500 text-center font-bold text-lg">$300</h1>
+                <button class="font-bold bg-red-600 text-white rounded-xl hover:bg-slate-300 hover:border border-slate-600 w-fit px-5 py-2 text-lg hover:text-black btn-hard">Add to Cart </button>
+            </div>
+            <div class="bg-slate-200 flex flex-col p-6 w-full h-full rounded-xl gap-6 items-center  hover:bg-gradient-to-br
+            group-hover:from-red-50 
+           group-hover:via-purple-50 
+           group-hover:to-yellow-50 product-list" data-aos="flip-left" >
+                <h3 class="text-2xl">T-124</h3>
+                <img src="maaj24.png" alt="" class="w-40 h-40">
+                <h1 class="text-red-500 text-center font-bold text-lg">$300</h1>
+                <button class=" font-bold bg-red-600 text-white rounded-xl hover:bg-slate-300 hover:border border-slate-600 w-fit px-5 py-2 text-lg hover:text-black btn-hard">Add to Cart </button>
+            </div>
+            
+            
+       
+      </div>
+</main>
+    
+</body>
+<script src="script.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script>
+    AOS.init({
+        offset:300,
+        duration:1000
+    })
+</script>
+
+</html>
