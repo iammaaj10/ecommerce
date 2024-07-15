@@ -208,6 +208,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function updateCartUI() {
         const cartContainer = document.getElementById('cart');
         const quantitySpan = document.getElementById('quan');
+        const quantitySpan1 = document.getElementById('quan1');
         
         cartContainer.innerHTML = ''; // Clear the cart container
 
@@ -237,6 +238,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Update the quantity span
         quantitySpan.textContent = cart.length;
+        quantitySpan1.textContent = cart.length;
     }
 
     // Add event listener to each "Add to Cart" button
@@ -263,7 +265,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-document.getElementById('add-cart').addEventListener('click', ()=> {
+document.getElementById('add-cart1').addEventListener('click', ()=> {
     document.getElementById('cart-container').classList.remove('hidden');
 });
 document.getElementById('add-cart').addEventListener('click', ()=> {
