@@ -294,6 +294,7 @@ document.getElementById('cross1').addEventListener('click',()=>{
 
 
 // dynamically adding the deatails of each shoes
+document.addEventListener("DOMContentLoaded", () => {
 const containers = document.querySelectorAll('.product-list');
 const modal = document.getElementById('details');
 const remove = document.getElementById('cross2');
@@ -504,4 +505,4 @@ function displayDetails(containerId) {
         modal.style.display = 'block';
     } 
 }
-
+});
