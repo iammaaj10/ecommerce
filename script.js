@@ -20,6 +20,20 @@ document.getElementById('btn2').addEventListener('click', ()=> {
 });
 
 
+function maaj1()
+{
+    alert("Mr.John Snow");
+}
+
+function maaj2()
+{
+    alert("At/Post Ajara Dist Kolhapur Pin:416505")
+}
+
+function maaj3()
+{
+    alert("9130304068 , 7770007586")
+}
 
 
 
@@ -277,4 +291,217 @@ document.getElementById('add-cart').addEventListener('click', ()=> {
 document.getElementById('cross1').addEventListener('click',()=>{
     document.getElementById('cart-container').classList.add('hidden');
 })
+
+
+// dynamically adding the deatails of each shoes
+const containers = document.querySelectorAll('.product-list');
+const modal = document.getElementById('details');
+const remove = document.getElementById('cross2');
+const detail_modal = document.getElementById('pdetails');
+
+containers.forEach(container => {
+    const buttons = container.querySelectorAll('.btn');
+    buttons.forEach(button => {
+        button.addEventListener('click', function () {
+            const containerId = container.id.substring(1); // Assuming id format is "p1", "p2", etc.
+            displayDetails(containerId);
+        });
+    });
+});
+
+remove.addEventListener('click', function () {
+    modal.style.display = 'none';
+});
+
+window.addEventListener('click', function (event) {
+    if (event.target == modal) {
+        modal.style.display = 'none';
+    }
+});
+
+function displayDetails(containerId) {
+    const details = {
+        1: {
+            title: 'Adidas t-103',
+            description: 'Extremely heavy and robust shoes and can be used in sports tracking and also it is unisex!!',
+            price: '$30.00',
+            image: 'pngwing.com.png',
+            button: 'Buy Now'
+        },
+        2: {
+            title: 'Nike air max',
+            description: 'Gear to experience the limited edition pair of Nike available in every size',
+            price: '$40.00',
+            image: 'maaj1.png',
+            button: 'Buy Now'
+        },
+        3: {
+            title: 'Nike R-22',
+            description: 'Gear to experience the limited edition pair of Nike available in every size',
+            price: '$40.00',
+            image: 'maaj2.png',
+            button: 'Buy Now'
+        },
+        4: {
+            title: 'Nike t-104',
+            description: 'Gear to experience the limited edition pair of Nike available in every size',
+            price: '$35.00',
+            image: 'maaj3.png',
+            button: 'Buy Now'
+        },
+        5: {
+            title: 'T-105',
+            description: 'Gear to experience the limited edition pair of Nike available in every size',
+            price: '$30.00',
+            image: 'maaj5.png',
+            button: 'Buy Now'
+        },
+        6: {
+            title: 'T-106',
+            description: 'Gear to experience the limited edition pair of Nike available in every size',
+            price: '$45.00',
+            image: 'maaj6.png',
+            button: 'Buy Now'
+        },
+        7: {
+            title: 'T-107',
+            description: 'Gear to experience the limited edition pair of Nike available in every size',
+            price: '$30.00',
+            image: 'maaj7.png',
+            button: 'Buy Now'
+        },
+        8: {
+            title: 'T-108',
+            description: 'Gear to experience the limited edition pair of Nike available in every size',
+            price: '$50.00',
+            image: 'maaj8.png',
+            button: 'Buy Now'
+        },
+        9: {
+            title: 'T-109',
+            description: 'Gear to experience the limited edition pair of Nike available in every size',
+            price: '$30.00',
+            image: 'maaj9.png',
+            button: 'Buy Now'
+        },
+        10: {
+            title: 'T-110',
+            description: 'Gear to experience the limited edition pair of Nike available in every size',
+            price: '$40.00',
+            image: 'maaj10.png',
+            button: 'Buy Now'
+        },
+        11: {
+            title: 'T-111',
+            description: 'Gear to experience the limited edition pair of Nike available in every size',
+            price: '$45.00',
+            image: 'maaj11.png',
+            button: 'Buy Now'
+        },
+        12: {
+            title: 'T-112',
+            description: 'Gear to experience the limited edition pair of Nike available in every size',
+            price: '$30.00',
+            image: 'maaj12.png',
+            button: 'Buy Now'
+        },
+        13: {
+            title: 'T-113',
+            description: 'Gear to experience the limited edition pair of Nike available in every size',
+            price: '$55.00',
+            image: 'maaj13.png',
+            button: 'Buy Now'
+        },
+        14: {
+            title: 'T-114',
+            description: 'Gear to experience the limited edition pair of Nike available in every size',
+            price: '$40.00',
+            image: 'maaj14.png',
+            button: 'Buy Now'
+        },
+        15: {
+            title: 'T-115',
+            description: 'Gear to experience the limited edition pair of Nike available in every size',
+            price: '$45.00',
+            image: 'maaj15.png',
+            button: 'Buy Now'
+        },
+        16: {
+            title: 'T-116',
+            description: 'Gear to experience the limited edition pair of Nike available in every size',
+            price: '$40.00',
+            image: 'maaj16.png',
+            button: 'Buy Now'
+        },
+        17: {
+            title: 'T-117',
+            description: 'Gear to experience the limited edition pair of Nike available in every size',
+            price: '$30.00',
+            image: 'maaj17.png',
+            button: 'Buy Now'
+        },
+        18: {
+            title: 'T-118',
+            description: 'Gear to experience the limited edition pair of Nike available in every size',
+            price: '$35.00',
+            image: 'maaj18.png',
+            button: 'Buy Now'
+        },
+        19: {
+            title: 'T-119',
+            description: 'Gear to experience the limited edition pair of Nike available in every size',
+            price: '$40.00',
+            image: 'maaj19.png',
+            button: 'Buy Now'
+        },
+        20: {
+            title: 'T-120',
+            description: 'Gear to experience the limited edition pair of Nike available in every size',
+            price: '$35.00',
+            image: 'maaj20.png',
+            button: 'Buy Now'
+        },
+        21: {
+            title: 'T-121',
+            description: 'Gear to experience the limited edition pair of Nike available in every size',
+            price: '$40.00',
+            image: 'maaj21.png',
+            button: 'Buy Now'
+        },
+        22: {
+            title: 'T-122',
+            description: 'Gear to experience the limited edition pair of Nike available in every size',
+            price: '$45.00',
+            image: 'maaj22.png',
+            button: 'Buy Now'
+        },
+        23: {
+            title: 'T-123',
+            description: 'Gear to experience the limited edition pair of Nike available in every size',
+            price: '$35.00',
+            image: 'maaj23.png',
+            button: 'Buy Now'
+        },
+        24: {
+            title: 'T-124',
+            description: 'Gear to experience the limited edition pair of Nike available in every size',
+            price: '$40.00',
+            image: 'maaj24.png',
+            button: 'Buy Now'
+        },
+        
+    };
+
+    const containerDetails = details[containerId];
+    if (containerDetails) {
+        detail_modal.innerHTML = `
+            <h2>${containerDetails.title}</h2>
+            <p>${containerDetails.description}</p>
+            <p>Price: ${containerDetails.price}</p>
+            <img src="${containerDetails.image}" class="w-20 h-20" alt="${containerDetails.title}">
+            <button class="font-bold bg-red-600 text-white rounded-xl hover:bg-slate-300 hover:border border-slate-600 w-fit px-5 py-2 text-lg hover:text-black">${containerDetails.button}</button>
+        `;
+        modal.style.display = 'block';
+    } 
+}
 
