@@ -279,18 +279,19 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-document.getElementById('add-cart1').addEventListener('click', ()=> {
-    document.getElementById('cart-container').classList.remove('hidden');
+document.addEventListener('DOMContentLoaded', () => {
+    document.getElementById('add-cart1').addEventListener('click', () => {
+        document.getElementById('cart-container').classList.remove('hidden');
+    });
+
+    document.getElementById('add-cart').addEventListener('click', () => {
+        document.getElementById('cart-container').classList.remove('hidden');
+    });
+
+    document.getElementById('cross1').addEventListener('click', () => {
+        document.getElementById('cart-container').classList.add('hidden');
+    });
 });
-document.getElementById('add-cart').addEventListener('click', ()=> {
-    document.getElementById('cart-container').classList.remove('hidden');
-});
-
-
-
-document.getElementById('cross1').addEventListener('click',()=>{
-    document.getElementById('cart-container').classList.add('hidden');
-})
 
 
 // dynamically adding the deatails of each shoes
@@ -506,3 +507,38 @@ function displayDetails(containerId) {
     } 
 }
 });
+
+
+// github page
+document.addEventListener("DOMContentLoaded", () => {
+document.getElementById('github').addEventListener('click',()=>{
+    document.getElementById('gitcon').classList.remove('hidden')
+})
+document.getElementById('gitcross').addEventListener('click',()=>{
+    document.getElementById('gitcon').classList.add('hidden')
+})
+
+   document.getElementById('github').addEventListener('click', async () => {
+    try {
+        const response = await fetchData("https://api.github.com/users/iammaaj10");
+       // document.getElementById('result').innerText = JSON.stringify(response,null,2);
+        const followers = response.followers
+        document.getElementById('followers-count').innerText =`Followers = ${followers}`;
+        const avatar_url=response.avatar_url
+        const imageElement=document.getElementById('pic')
+         imageElement.src=avatar_url
+        imageElement.style.display='block '
+    } catch (error) {
+        document.getElementById('followers-count').innerText = error;
+    }
+});
+async function fetchData(url) {
+            const response = await fetch(url);
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            const data = await response.json();
+            return data;
+        }
+    });
+
