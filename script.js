@@ -91,7 +91,11 @@ document.addEventListener('DOMContentLoaded', () => {
             // Show success alert
             alert("Thanks for your feedback !!!");
         }
+        localStorage.setItem("Name",name)
+        localStorage.setItem("Phone",phone)
+        localStorage.setItem("Message",message)
     });
+   
 });
 
 document.addEventListener("DOMContentLoaded", function() {
