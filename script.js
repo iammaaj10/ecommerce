@@ -133,68 +133,67 @@ document.addEventListener("DOMContentLoaded", function() {
 
 // signup
 
-document.addEventListener("DOMContentLoaded",()=>{
-    document.querySelector('.formsubmit1').addEventListener('click',(e)=>{
+document.addEventListener("DOMContentLoaded", () => {
+    document.querySelector('.formsubmit1').addEventListener('click', (e) => {
         e.preventDefault();
 
-        document.querySelectorAll('.err').forEach((val)=>{
+        // Clear previous error messages
+        document.querySelectorAll('.err').forEach((val) => {
             val.innerHTML = '';
         });
 
-        const username=document.getElementById('user').value.trim();
-        const number=document.getElementById('nos').value.trim();
-        const email=document.getElementById('email').value.trim();
-        const pass=document.getElementById('pass').value.trim();
-        const cpass=document.getElementById('pass1').value.trim();
+        const username = document.getElementById('user').value.trim();
+        const number = document.getElementById('nos').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const pass = document.getElementById('pass').value.trim();
+        const cpass = document.getElementById('pass1').value.trim();
 
+        const puser = /^[A-Za-z]{3,20}$/;
+        const pnum = /^[6-9][0-9]{9}$/;
+        const pemail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+        const ppass = /^(?=.*[A-Z])(?=.*[a-z])(?=.*[\d])(?=.*[\W_]).{8,}$/;
 
-        const puser=/^[A-Za-z]{3,20}$/;
-        const pnum=/^[6-9][0-9]{9}$/;
-        const pemail=/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-        const ppass=/^(?=.*[A-Z])(?=.*[a-z])(?=.*[\d])(?=.*[\W_]).{8,}$/;
+        let valid = true;
 
-
-
-        let valid =true
-
-        if(!puser.test(username))
-        {
-            document.getElementById('error1').innerHTML="Invalid username";
-            valid=false
+        if (!puser.test(username)) {
+            document.getElementById('error1').innerHTML = "Invalid username";
+            valid = false;
         }
 
-        if(!pnum.test(number))
-        {
-            document.getElementById('error2').innerHTML="Invalid phone number";
-            valid=false;
+        if (!pnum.test(number)) {
+            document.getElementById('error2').innerHTML = "Invalid phone number";
+            valid = false;
         }
 
-        if(!pemail.test(email))
-        {
-            document.getElementById('error3').innerHTML="Invalid email id!"
-            valid=false;
+        if (!pemail.test(email)) {
+            document.getElementById('error3').innerHTML = "Invalid email id!";
+            valid = false;
         }
 
-        if(!ppass.test(pass))
-        {
-            document.getElementById('error4').innerHTML="Password must be atleast 8 letters containing digits letters and special symbols";
-            valid=false;
-        }
-        if(pass!==cpass)
-        {
-            document.getElementById('error5').innerHTML="Passowrd is not matching !!";
-            valid=false;
+        if (!ppass.test(pass)) {
+            document.getElementById('error4').innerHTML = "Password must be at least 8 characters long containing digits, letters, and special symbols";
+            valid = false;
         }
 
-         if(valid){
-            let formdetails= document.getElementsByClassName('form-control')
-        
-        Array.from(formdetails).forEach((e)=>(e.value=""))
-        alert("Sign up done successfully")
-         }
-        
+        if (pass !== cpass) {
+            document.getElementById('error5').innerHTML = "Password is not matching !!";
+            valid = false;
+        }
+
+        if (valid) {
+            let formdetails = document.getElementsByClassName('form-control');
+            Array.from(formdetails).forEach((e) => (e.value = ""));
+            alert("Sign up done successfully");
+
+            localStorage.setItem("User", username);
+            localStorage.setItem("Nos", number);
+            localStorage.setItem("Email", email);
+            localStorage.setItem("pass", pass);
+            localStorage.setItem("cpass", cpass);
+        }
     });
 });
+
 
 // cart updation
 
