@@ -305,7 +305,7 @@ containers.forEach(container => {
     const buttons = container.querySelectorAll('.btn');
     buttons.forEach(button => {
         button.addEventListener('click', function () {
-            const containerId = container.id.substring(1); // Assuming id format is "p1", "p2", etc.
+            const containerId = container.id.substring(1); 
             displayDetails(containerId);
         });
     });
