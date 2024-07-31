@@ -545,3 +545,23 @@ async function fetchData(url) {
         }
     });
 
+    document.addEventListener('DOMContentLoaded', () => {
+        let toastbox = document.getElementById('toastbox');
+        let successMsg = '<i class="fa-solid fa-circle-check"></i> Successfully submitted ';
+    
+        document.querySelectorAll('.btn-hard').forEach(button => {
+            button.addEventListener('click', () => {
+                let toast = document.createElement('div');
+                toast.classList.add('toast');
+                toast.innerHTML = successMsg;
+                toastbox.appendChild(toast);
+    
+                setTimeout(() => {
+                    toast.remove();
+                }, 3000);
+            });
+        });
+    });
+    
+    
+    
