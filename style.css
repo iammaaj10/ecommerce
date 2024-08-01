@@ -89,6 +89,7 @@ html {
     transform: translateX(100%);
     animation: moveleft 0.5s linear forwards;
     border-radius: 10px;
+    z-index: 5;
 }
 
 @keyframes moveleft {
