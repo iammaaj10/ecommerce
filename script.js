@@ -564,10 +564,35 @@ async function fetchData(url) {
     });
     
     
-    // gsap.to('#men',{
-    //     y: 100,
-    //     x:0,
-    //     duration:2,
-    //     delay:1
-    // })
-    
+    gsap.from('#men',{
+        
+        duration:2,
+        delay:1,
+        opacity:0,
+        y:20,
+        color:"indigo",
+        
+    })
+
+    const tl = gsap.timeline()
+
+    tl.from("#company",{
+        y:-20,
+        opacity:0,
+        duration:0.7,
+        delay:0.5
+    })
+
+    tl.from("#nav a",{
+        y:-20,
+        opacity:0,
+        duration:0.5,
+        delay:0.5,
+        stagger:0.5
+    })
+    tl.from("#btn1",{
+        y:-20,
+        opacity:0,
+        duration:0.5,
+        delay:0.5
+    })
