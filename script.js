@@ -564,4 +564,10 @@ async function fetchData(url) {
     });
     
     
+    // gsap.to('#men',{
+    //     y: 100,
+    //     x:0,
+    //     duration:2,
+    //     delay:1
+    // })
     
