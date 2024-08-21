@@ -114,6 +114,7 @@ document.addEventListener("DOMContentLoaded", function() {
   });
 
 
+
   
   function filterShoes() {
     const input = document.getElementById('searchInput');
@@ -586,7 +587,7 @@ async function fetchData(url) {
     tl.from("#nav a",{
         y:-20,
         opacity:0,
-        duration:0.5,
+        duration:0.2,
         delay:0.5,
         stagger:0.5
     })
